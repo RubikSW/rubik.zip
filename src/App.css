@@ -1,0 +1,500 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+
+* {
+  font-family: 'Rubik';
+  color: white;
+}
+
+#root {
+  width: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  background: url(bg.jpg) center no-repeat fixed;
+  background-color: black;
+  backdrop-filter: brightness(0.2);
+  justify-content: center;
+}
+
+.main {
+  margin: auto;
+  min-height: 80%;
+  width: 1000px;
+}
+
+.HeadBlock {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-top: 7%;
+}
+
+.HeadBlock #links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.subs {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.commits {
+  width: fit-content;
+}
+
+.origin-dev {
+  display: inline;
+  margin: 5px;
+  padding: 1px 8px 4px 0;
+  border-radius: 6px;
+  background: #41475e99;
+  border-left-width: 0;
+  border: 2px solid #03a9f470;
+  border-left: 0;
+}
+
+.origin-media {
+  display: inline;
+  margin: 5px;
+  padding: 1px 8px 4px 0;
+  border-radius: 6px;
+  background: #41475e99;
+  border-left-width: 0;
+  border: 2px solid #e5c61e70;
+  border-left: 0;
+}
+
+#fa-dev {
+  display: inline-flex;
+  padding: 5px 0px;
+  border-radius: 6px 0px 0 6px;
+  background: #03a9f4;
+  width: 30px;
+  place-content: center;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+#fa-media {
+  display: inline-flex;
+  padding: 5px 0px;
+  border-radius: 6px 0px 0 6px;
+  background: #e5c61e;
+  width: 30px;
+  place-content: center;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+
+.footer {
+  position: fixed;
+  bottom: 10px;
+  font-size: small;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.avatar {
+  margin: 2%;
+}
+
+nav {
+  width: 300px;
+  display: flex;
+}
+
+.post {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post #body {
+  display: flex;
+  flex-direction: column;
+}
+
+.post #body img {
+  width: fit-content;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
+
+
+.post #close {
+  font-size: 56px;
+  margin: auto;
+  transform: translateY(0);
+  /* Initial position */
+  transition: transform 0.2s ease;
+}
+
+.post #close:hover {
+  transform: translateY(-3px);
+  cursor: pointer;
+}
+
+#post_title {
+  font-size: 20px;
+}
+
+#GreenCode {
+  font-family: "IBM Plex Mono";
+  color: #8dffba;
+}
+
+#Code {
+  font-family: "IBM Plex Mono";
+}
+
+.recent li {
+  padding-bottom: 12px !important;
+}
+
+.recent #post_title:hover {
+  cursor: pointer;
+}
+
+.recent li:hover #post_title,
+.recent li:hover #post_time {
+  font-weight: 600;
+}
+
+nav ul {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  width: inherit;
+  justify-content: space-between;
+  justify-content: space-between;
+}
+
+ul {
+  padding-left: 0 !important;
+}
+
+nav li {
+  width: 4rem;
+  height: unset;
+  font-size: 40px;
+  position: relative;
+}
+
+nav li::before {
+  content: '';
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  top: 0;
+  left: 0;
+  transition: 0.3s;
+  border-radius: 15px;
+}
+
+nav li::before {
+  z-index: -1;
+}
+
+
+
+nav li:hover {
+  color: white;
+}
+
+nav li:hover::before {
+  background-color: #3f475e;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  padding-bottom: 40px;
+  position: relative
+}
+
+.commits ul li span {
+  border-radius: 50%;
+  border: 1px solid #03a9f4;
+  padding: 0px 6px;
+  margin-right: 13px;
+  background: #03a9f4;
+  font-size: x-small;
+}
+
+.commits ul li span:before {
+  content: '';
+  position: absolute;
+  border-left: 2px solid;
+  left: 6.5px;
+  bottom: -15px;
+  z-index: -1;
+  height: 100%;
+  color: #03a9f4;
+}
+
+ul li:last-child span:before {
+  content: none;
+}
+
+ul li:last-child {
+  padding-bottom: 0
+}
+
+.repos {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+  margin: auto;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.repos li {
+  width: 100%;
+  max-width: 50%;
+}
+
+.ReposFrm {
+  margin-top: 2%;
+}
+
+.Repo {
+  margin: 0 20px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ffffff1f;
+  padding: 10px;
+  border-radius: 6px;
+  height: 150px;
+  background-color: #1f1f1f;
+  box-shadow: 1px 1px 20px 2px #00000029;
+  margin-left: 0;
+}
+
+.Repo #inner {
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+}
+
+.Repo #inner #text,
+.Repo #inner #one,
+.Repo #inner #two {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px;
+  padding-top: 0;
+  justify-content: flex-start;
+}
+
+.Repo #inner #frm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.Repo #inner #two {
+  font-size: 14px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Repo #language {
+  font-weight: 0;
+}
+
+.Repo #language svg {
+  margin-right: 5px;
+}
+
+.Repo #inner img {
+  height: 150px;
+  width: 150px;
+  border-radius: 6px;
+}
+
+.Repo #name {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.Repo #desc {
+  font-size: 14px;
+}
+
+#headtext {
+  display: grid;
+}
+
+#aboutme {
+  width: 80%;
+}
+
+
+@media screen and (max-width: 1145px) {
+
+  #aboutme {
+    width: 100%;
+  }
+
+  .main {
+    width: 100%;
+  }
+
+  .post #body img {
+    width: 100%;
+  }
+
+  #inner #top {
+    width: 100%;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  .recent li {
+    padding-bottom: 26px !important;
+  }
+
+  nav li {
+    height: 3.5rem;
+    font-size: 3rem;
+    text-align: center;
+    line-height: 3.8rem;
+    letter-spacing: 1px;
+    position: relative;
+    transition: 0.3s;
+    margin: 1rem;
+  }
+
+  .repos li {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  nav ul {
+    display: flex;
+  }
+
+  #headtext {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 15px;
+  }
+
+  .subs {
+    padding: 10px;
+  }
+
+  #blogfrm {
+    padding: 10px;
+  }
+
+  #projfrm {
+    padding: 10px;
+  }
+
+  .repos {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Repo #inner img {
+    height: 100%;
+    width: 100%;
+    border-radius: 6px 5px 0 0;
+    margin-bottom: 10px;
+  }
+
+  .Repo #inner #text,
+  .Repo #inner #one,
+  .Repo #inner #two {
+    padding: 5px;
+  }
+
+  .Repo {
+    margin: 0;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+    height: auto;
+    padding: 0;
+  }
+
+  .Repo #inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* width: 100%; */
+  }
+
+  body {
+
+    min-height: 80vh;
+    background: url(bg.jpg) center no-repeat fixed;
+    background-size: fixed;
+  }
+
+  .footer {
+    font-size: large;
+  }
+
+  .main {
+    margin-bottom: 15%;
+  }
+
+  .HeadBlock {
+    margin: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 15px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .HeadBlock #links {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #post_title {
+    font-size: 4.5vw;
+  }
+
+  #post_time {
+    font-size: 3.5vw;
+    white-space: nowrap;
+  }
+
+
+
+
+
+
+}
