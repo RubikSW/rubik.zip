@@ -11,7 +11,7 @@ function GitHubRepos({ username }) {
     572730660: 'https://i.imgur.com/pa5eEnH.png', //aurora
     532611516: 'https://i.imgur.com/bcPQpNr.png', //mlp
     537990912: 'https://camo.githubusercontent.com/c6da0d3f2cf4a86bb21495607e9cdf00ab6badc63103bcdf37ab74e93dc509b2/68747470733a2f2f692e696d6775722e636f6d2f4c5778515348452e706e67',
-    644706455: ['https://i.imgur.com/nP35DmD.png', "I made this RPC client for a Garry's Mod server. It connects to our API and displays the player's current activity via Discord's activity status service."], //gmod rpc client
+    644706455: ['https://i.imgur.com/nP35DmD.png', "RPC client for our Garry's Mod server. Connects to our API and displays the player's current activity via Discord's activity status service."], //gmod rpc client
     623280194: 'https://i.imgur.com/HwXjBxh.png', //mdmp
     482373146: 'https://i.imgur.com/qfKT5tv.png' //path
   };

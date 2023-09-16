@@ -9,6 +9,10 @@
   width: 100%;
 }
 
+#section {
+  margin-top: 35px;
+}
+
 body {
   display: flex;
   align-items: center;
@@ -28,14 +32,15 @@ body {
 .HeadBlock {
   margin: auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: row;
-  align-items: flex-start;
   margin-top: 7%;
+  align-items: center;
 }
 
 .HeadBlock #links {
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
 }
@@ -223,7 +228,7 @@ ul {
 }
 
 ul li {
-  padding-bottom: 40px;
+  padding-bottom: 20px;
   position: relative
 }
 
@@ -255,6 +260,11 @@ ul li:last-child {
   padding-bottom: 0
 }
 
+.recent {
+  width: 98%;
+  margin-left: 10px;
+}
+
 .repos {
   display: flex;
   flex-direction: row;
@@ -274,16 +284,17 @@ ul li:last-child {
 }
 
 .Repo {
-  margin: 0 20px;
   display: flex;
   flex-direction: column;
   border: 1px solid #ffffff1f;
   padding: 10px;
   border-radius: 6px;
-  height: 150px;
+  height: 115px;
   background-color: #1f1f1f;
   box-shadow: 1px 1px 20px 2px #00000029;
   margin-left: 0;
+  width: 93%;
+  margin-left: 5px;
 }
 
 .Repo #inner {
@@ -324,8 +335,8 @@ ul li:last-child {
 }
 
 .Repo #inner img {
-  height: 150px;
-  width: 150px;
+  height: 100px;
+  width: 100px;
   border-radius: 6px;
 }
 
@@ -405,11 +416,7 @@ ul li:last-child {
     padding: 10px;
   }
 
-  #blogfrm {
-    padding: 10px;
-  }
-
-  #projfrm {
+  #section {
     padding: 10px;
   }
 
