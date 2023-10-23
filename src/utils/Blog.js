@@ -58,6 +58,7 @@ function BlogPosts({ username }) {
                     display: 'flex',
                     justifyContent: 'space-between',
                     cursor: 'pointer',
+                    alignItems: 'center'
                   }}
                   onClick={() => toggleExpansion(post.number)}
                 >

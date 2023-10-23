@@ -9,11 +9,7 @@
   width: 100%;
 }
 
-#section {
-  margin-top: 35px;
-}
-
-body {
+.MainFrame, body {
   display: flex;
   align-items: center;
   min-height: 100vh;
@@ -36,6 +32,7 @@ body {
   flex-direction: row;
   margin-top: 7%;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .HeadBlock #links {
@@ -50,54 +47,6 @@ body {
   flex-direction: row-reverse;
   align-items: center;
   justify-content: flex-end;
-}
-
-.commits {
-  width: fit-content;
-}
-
-.origin-dev {
-  display: inline;
-  margin: 5px;
-  padding: 1px 8px 4px 0;
-  border-radius: 6px;
-  background: #41475e99;
-  border-left-width: 0;
-  border: 2px solid #03a9f470;
-  border-left: 0;
-}
-
-.origin-media {
-  display: inline;
-  margin: 5px;
-  padding: 1px 8px 4px 0;
-  border-radius: 6px;
-  background: #41475e99;
-  border-left-width: 0;
-  border: 2px solid #e5c61e70;
-  border-left: 0;
-}
-
-#fa-dev {
-  display: inline-flex;
-  padding: 5px 0px;
-  border-radius: 6px 0px 0 6px;
-  background: #03a9f4;
-  width: 30px;
-  place-content: center;
-  font-size: 16px;
-  vertical-align: middle;
-}
-
-#fa-media {
-  display: inline-flex;
-  padding: 5px 0px;
-  border-radius: 6px 0px 0 6px;
-  background: #e5c61e;
-  width: 30px;
-  place-content: center;
-  font-size: 16px;
-  vertical-align: middle;
 }
 
 
@@ -119,22 +68,22 @@ nav {
   display: flex;
 }
 
-.post {
-  display: flex;
-  justify-content: space-between;
-}
-
 .post #body {
   display: flex;
   flex-direction: column;
 }
 
 .post #body img {
-  width: fit-content;
   margin: auto;
   margin-top: 20px;
   margin-bottom: 20px;
   border-radius: 6px;
+  width: 100%;
+  
+}
+
+.preview-container {
+  display: flex;
 }
 
 
@@ -142,7 +91,6 @@ nav {
   font-size: 56px;
   margin: auto;
   transform: translateY(0);
-  /* Initial position */
   transition: transform 0.2s ease;
 }
 
@@ -162,6 +110,10 @@ nav {
 
 #Code {
   font-family: "IBM Plex Mono";
+}
+
+.CommitText {
+  font-size: 12px;
 }
 
 .recent li {
@@ -232,26 +184,6 @@ ul li {
   position: relative
 }
 
-.commits ul li span {
-  border-radius: 50%;
-  border: 1px solid #03a9f4;
-  padding: 0px 6px;
-  margin-right: 13px;
-  background: #03a9f4;
-  font-size: x-small;
-}
-
-.commits ul li span:before {
-  content: '';
-  position: absolute;
-  border-left: 2px solid;
-  left: 6.5px;
-  bottom: -15px;
-  z-index: -1;
-  height: 100%;
-  color: #03a9f4;
-}
-
 ul li:last-child span:before {
   content: none;
 }
@@ -280,7 +212,7 @@ ul li:last-child {
 }
 
 .ReposFrm {
-  margin-top: 2%;
+  margin-top: 10px;
 }
 
 .Repo {
@@ -308,7 +240,7 @@ ul li:last-child {
 .Repo #inner #two {
   display: flex;
   flex-direction: column;
-  padding: 5px 10px;
+  padding: 5px 4px;
   padding-top: 0;
   justify-content: flex-start;
 }
@@ -335,8 +267,8 @@ ul li:last-child {
 }
 
 .Repo #inner img {
-  height: 100px;
-  width: 100px;
+  height: 115px;
+  width: 115px;
   border-radius: 6px;
 }
 
@@ -356,6 +288,17 @@ ul li:last-child {
 
 #aboutme {
   width: 80%;
+}
+
+#section {
+  margin-bottom: 20px !important;
+}
+
+#section h1 {
+  background: linear-gradient(-90deg, #3f475480, transparent);
+  padding: 3px 5px;
+  border-radius: 6px;
+  margin: 0 5px;
 }
 
 
@@ -397,8 +340,7 @@ ul li:last-child {
   }
 
   .repos li {
-    max-width: 100%;
-    width: 100%;
+    width: 45%;
   }
 
   nav ul {
@@ -422,25 +364,30 @@ ul li:last-child {
 
   .repos {
     display: flex;
-    flex-direction: column;
-    max-width: 100%;
+    flex-direction: row;
     margin: auto;
+    justify-content: space-around;
+    align-items: flex-start;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
   }
 
   .Repo #inner img {
-    height: 100%;
-    width: 100%;
     border-radius: 6px 5px 0 0;
-    margin-bottom: 10px;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .Repo #inner #text,
   .Repo #inner #one,
   .Repo #inner #two {
     padding: 5px;
+    font-size: 10px;
+  }
+
+  .Repo #desc {
+    font-size: 12px;
   }
 
   .Repo {
@@ -457,10 +404,9 @@ ul li:last-child {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* width: 100%; */
   }
 
-  body {
+  .MainFrame, body {
 
     min-height: 80vh;
     background: url(bg.jpg) center no-repeat fixed;
@@ -499,7 +445,14 @@ ul li:last-child {
     white-space: nowrap;
   }
 
+  #inner #top {
+    width: 100%;
+    height: 150px;
+  }
 
+  .Repo #name {
+    font-size: 14px;
+  }
 
 
 

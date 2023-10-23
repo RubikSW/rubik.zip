@@ -1,0 +1,153 @@
+.RadioStreams {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.RadioStreams video {
+    display: none;
+}
+
+.StreamBlock {
+    background-position: 50%;
+    background-size: cover;
+    box-shadow: 0 0 20px #00000063;
+    width: 19%;
+    margin: auto;
+    box-sizing: border-box;
+    margin: auto;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+    margin-top: 5px;
+    height: 100px;
+    transform: skewY(0);
+    border-radius: 6px;
+}
+
+.StreamBlock:hover {
+    transform: skewY(-.8deg) scale(1.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.StreamBlock:hover > .StreamTitle { 
+    mix-blend-mode: lighten;
+}
+
+.StreamBlock:hover > .StreamDesc { 
+    font-size: 17px;
+}
+
+.StreamTitle, .StreamDesc {
+    font-family: Rubik Mono One,serif;
+    font-size: 15px;
+    mix-blend-mode: unset;
+}
+
+.StreamTitle {
+    margin-bottom: 5px;
+    padding: 0 5px;
+    width: fit-content;
+    font-size: 15px;
+    border-radius: 6px 6px 0 0;
+    width: auto;
+    line-height: 27px;
+    backdrop-filter: blur(4px);
+}
+
+.StreamDesc {
+    background: linear-gradient(90deg, black, transparent);
+    padding-left: 5px;
+    width: 80%;
+}
+
+.MusicBars {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 96.5%;
+    height: 20px;
+    bottom: 0px;
+    padding: 0 3px;
+}
+
+.MusicBars span {
+    width: 3px;
+    height: 100%;
+    background-color: orange;
+    border-radius: 3px;
+    transform-origin: bottom;
+    animation: bounce 2.2s ease infinite alternate;
+    content: '';
+}
+
+.MusicBars span:nth-child(2n) {
+    animation-delay: -2.2s;
+}
+
+.MusicBars span:nth-child(3n) {
+    animation-delay: -3.7s;
+}
+
+.MusicBars span:nth-child(4n) {
+    animation-delay: -2.7s;
+}
+
+.MusicBars span:nth-child(5n) {
+    animation-delay: -4.3s;
+}
+.MusicBars span:nth-child(6n) {
+    animation-delay: -1.9s;
+}
+.MusicBars span:nth-child(7n) {
+    animation-delay: -5.1s;
+}
+
+
+
+
+
+
+
+
+
+
+@keyframes bounce {
+    10% {
+      transform: scaleY(0.3); /* start by scaling to 30% */
+    }
+  
+    30% {
+      transform: scaleY(1); /* scale up to 100% */
+    }
+  
+    60% {
+      transform: scaleY(0.5); /* scale down to 50% */
+    }
+  
+    80% {
+      transform: scaleY(0.75); /* scale up to 75% */
+    }
+  
+    100% {
+      transform: scaleY(0.6); /* scale down to 60% */
+    }
+}
+
+
+@media screen and (max-width: 1145px) { 
+    .RadioStreams {
+        overflow-x: scroll;
+        margin: 10px;
+        border-radius: 6px;
+    }
+    .StreamBlock {
+        min-width: 50%;
+        margin-right: 10px;
+    }
+
+    .StreamBlock:hover {
+        transform: none;
+    }
+}

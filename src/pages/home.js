@@ -1,13 +1,14 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faCode, faCodeBranch, faCamera, faPaperPlane, faHistory, faCodeCommit, faHand } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faCode, faCodeBranch, faCamera, faPaperPlane, faHistory, faCodeCommit, faHand, faHeadphones, faInfo, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 import { faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons'
 import React, { useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import "@fontsource/ibm-plex-mono";
 
 import '../App.css';
 import me from '../me.png'
+import RadioStreams from '../elements/radiostreams';
 import GitHubRepos from '../utils/GitHub';
-import BlogPosts from '../utils/Blog';
 import Gallery from '../elements/gallery.js';
 
 function Home() {
@@ -51,7 +52,8 @@ function Home() {
   return (
     <div className="App">
 
-      <body>
+      <div className="MainFrame">
+
         <div className="main">
 
           <div className='HeadBlock'>
@@ -62,13 +64,15 @@ function Home() {
                   <ul>
                     <a href="mailto:sbsrubik@outlook.com" target="_blank"><li><FontAwesomeIcon icon={faEnvelope} /></li></a>
                     <a href="https://discordapp.com/users/195929315899080705/" target="_blank" title="Contact me on Discord"><li><FontAwesomeIcon icon={faDiscord} /></li></a>
-                    <a href="https://github.com/rubik7711" target="_blank" title="GitHub"><li><FontAwesomeIcon icon={faGithub} /></li></a>
+                    <a href="https://github.com/RubikSW" target="_blank" title="GitHub"><li><FontAwesomeIcon icon={faGithub} /></li></a>
                     <a href="https://rubik.zip/dev" target="_blank" title="Portfolio"><li><FontAwesomeIcon icon={faCode} /></li></a>
                   </ul>
                 </nav>
               </div>
               <div id="headtext">
-                <a style={{ fontSize: '19px', margin: '20px 0' }}>I see you've taken a leap of faith and opened <a id='GreenCode' style={{ color: '#8dffba' }}>rubik.zip</a></a>
+                <a style={{ fontSize: '19px', margin: '20px 0' }}>I see you've taken a leap of faith and opened <span id='GreenCode' style={{ color: '#8dffba' }}>rubik.zip</span>.
+                  You may use, copy or modify any of my photos or github projects for non-commercial purposes. I can be reached via Discord, or by email at sbsrubik@outlook.com
+                </a>
               </div>
 
 
@@ -86,31 +90,16 @@ function Home() {
 
           </div>
 
-
-          <div className="subs">
-            <div>
-              <h1><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faHistory} />History</h1>
-              <div className="commits">
-                <ul>
-                  <li id='Code' ><span></span><div id='Code' className="origin-dev"><FontAwesomeIcon id="fa-dev" icon={faCodeBranch} /> 2023/dev</div> Owner at RUBIK S/W, LLC</li>
-                  <li id='Code' ><span></span><div id='Code' className="origin-media"><FontAwesomeIcon id="fa-media" icon={faCamera} /> 2021/media</div> Technical Director at Nexstar Media Group, Inc</li>
-                  <li id='Code' ><span></span><div id='Code' className="origin-dev"><FontAwesomeIcon id="fa-dev" icon={faCodeBranch} /> 2018/dev</div> Game Programmer & Web Developer at Solid Block Studios, LLC</li>
-                  <li id='Code' ><span></span><div id='Code' className="origin-dev"><FontAwesomeIcon id="fa-dev" icon={faCodeBranch} /> 2009/dev</div> Webmaster at Real Life Plus, Inc.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div id="section">
-            <h1><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faPaperPlane} />Blog</h1>
-            <BlogPosts username="rubiksw" />
-          </div>
-
           <div id='section'>
             <NavLink to="/gallery" style={{ textDecoration: 'none' }}>
               <h1><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faCamera} /> Gallery</h1>
             </NavLink>
-            <Gallery state="preview" />
+            <Gallery state="preview" albumId="72157719558194921" />
+          </div>
+
+          <div id='section'>
+            <h1 className='RadioTitle'><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faHeadphones} title='Continuous audio streams using Icecast & ffmpeg running as a PM2 process.' /> Radio</h1>
+            <RadioStreams />
           </div>
 
           <div id='section'>
@@ -121,12 +110,9 @@ function Home() {
         </div>
 
 
-        <div className="footer">
-          <i className="far fa-copyright"></i>
-          <span>2023 | rubik.zip</span>
-        </div>
+       
 
-      </body>
+      </div>
 
     </div>
   );

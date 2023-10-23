@@ -1,60 +1,86 @@
-// Albums.js
+
+
 import React, { useState, useEffect } from 'react';
 import '../styles/gallery.css';
 import Gallery from './gallery';
 
 function Albums() {
-  const imageContext = require.context('../../images', true, /\.(png|jpg|jpeg|gif|svg)$/);
-
-  const folderNames = imageContext.keys().map((key) => {
-    const folderPath = key.split('/').slice(1, -1).join('/');
-    return folderPath;
-  });
-
-  const uniqueFolderNames = [...new Set(folderNames)];
+  const [albums, setAlbums] = useState([]);
   const [selectedAlbum, setSelectedAlbum] = useState(null);
   const [albumThumbnails, setAlbumThumbnails] = useState({});
 
-  const setRandomThumbnail = (folderName) => {
-    const imagesInFolder = imageContext.keys().filter((key) => key.includes(folderName));
-    const randomImage = imagesInFolder[Math.floor(Math.random() * imagesInFolder.length)];
-    setAlbumThumbnails((prevThumbnails) => ({
-      ...prevThumbnails,
-      [folderName]: randomImage,
-    }));
+  useEffect(() => {
+    const flickrApiKey = '23800984d654ba9afc70ae7d1440cabc';
+    const getPhotosetsApiUrl = `https://www.flickr.com/services/rest/?method=flickr.photosets.getList&api_key=${flickrApiKey}&user_id=50712197@N03&format=json&nojsoncallback=1`;
+    fetch(getPhotosetsApiUrl)
+      .then(response => response.json())
+      .then(data => {
+        if (data.photosets && data.photosets.photoset) {
+          setAlbums(data.photosets.photoset);
+          setSelectedAlbum(data.photosets.photoset[0].id);
+        }
+      })
+      .catch(error => {
+        console.error("Error fetching albums from Flickr API:", error);
+      });
+  }, []);
+
+  const setFirstImageAsThumbnail = (albumId) => {
+    const flickrApiKey = '23800984d654ba9afc70ae7d1440cabc';
+    const getAlbumThumbnailApiUrl = `https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=${flickrApiKey}&format=json&nojsoncallback=1&photoset_id=${albumId}&per_page=1`;
+    fetch(getAlbumThumbnailApiUrl)
+      .then(response => response.json())
+      .then(data => {
+        if (data.photoset && data.photoset.photo && data.photoset.photo[0]) {
+          const thumbnailPhoto = data.photoset.photo[0];
+          const thumbnailUrl = `https://farm${thumbnailPhoto.farm}.staticflickr.com/${thumbnailPhoto.server}/${thumbnailPhoto.id}_${thumbnailPhoto.secret}_m.jpg`;
+          setAlbumThumbnails(prevThumbnails => ({
+            ...prevThumbnails,
+            [albumId]: thumbnailUrl,
+          }));
+        }
+      })
+      .catch(error => {
+        console.error("Error fetching album thumbnail from Flickr API:", error);
+      });
   };
 
   useEffect(() => {
-    uniqueFolderNames.forEach((folderName) => {
-      setRandomThumbnail(folderName);
+    albums.forEach(album => {
+      setFirstImageAsThumbnail(album.id);
     });
-  }, []);
+  }, [albums]);
 
   return (
     <div>
-      <div className="preview-container">
-        {uniqueFolderNames.map((folderName, index) => (
+      <div className="albumsList">
+        {albums.map((album, index) => (
           <div
             key={index}
             className="preview-image"
             onClick={() => {
-              setSelectedAlbum(folderName);
+              setSelectedAlbum(album.id);
             }}
           >
             <div>
-              <span className='image-caption'>{folderName}</span>
-              {albumThumbnails[folderName] && (
+              <span className='image-caption'>{album.title._content}</span>
+              {albumThumbnails[album.id] && (
                 <img
-                  src={imageContext(albumThumbnails[folderName])}
-                  alt={`Thumbnail for ${folderName}`}
+                  src={albumThumbnails[album.id]}
+                  alt={`Thumbnail for ${album.title._content}`}
+                  loading="lazy"
                 />
               )}
             </div>
           </div>
         ))}
       </div>
-
-      <Gallery state="all" album={selectedAlbum} imageContext={imageContext} />
+      
+      <div className='AlbumTitle'>
+        {selectedAlbum && <h1>{albums.find(album => album.id === selectedAlbum).title._content}</h1>}
+        {selectedAlbum && <h3 >{albums.find(album => album.id === selectedAlbum).description._content}</h3>}
+      </div>
+      <Gallery state="all" albumId={selectedAlbum} />
     </div>
   );
 }

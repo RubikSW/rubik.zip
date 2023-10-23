@@ -1,7 +1,29 @@
-.preview-container {
+.albumsList {
     display: flex;
-    justify-content: flex-start;
+    position: absolute;
+    flex-direction: column;
+    left: 0;
+    top: 0;
+    overflow-y: scroll;
+    width: 320px;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+    height: 100%;
+    background: #ffffff1c;
 }
+
+.albumsList::-webkit-scrollbar {
+    display: none;
+}
+
+.image-gallery-slide-wrapper,
+.image-gallery-thumbnail.active,
+.image-gallery-thumbnail:focus {
+    box-shadow: 1px 1px 20px 2px #00000029;
+}
+
 
 #gallery {
     justify-content: center;
@@ -12,7 +34,12 @@ nav {
 }
 
 .main {
-    margin-top: 2%;
+    margin-top: 1%;
+    width: 900px;
+}
+
+.AlbumTitle {
+    margin-bottom: 10px !important;
 }
 
 .main h1 {
@@ -23,13 +50,36 @@ nav {
     margin: 5px 0;
 }
 
+.image-gallery {
+    width: 100%;
+}
+
+.image-gallery-thumbnails {
+    padding: 10px 0;
+    padding-top: 0 !important;
+}
+
+.image-gallery-thumbnail {
+    height: 100px;
+    overflow: hidden;
+}
+
+.image-gallery-thumbnail .image-gallery-thumbnail-image {
+    object-fit: cover;
+    width: 110px;
+    height: 110px;
+}
 
 .preview-image {
-    width: 25%;
+    width: 80%;
+    margin: auto;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 5px;
+    margin: auto;
     position: relative;
     transition: transform 0.3s ease-in-out;
+    margin-top: 5px;
+    padding-bottom: 0px;
 }
 
 .preview-image img:hover {
@@ -55,7 +105,7 @@ nav {
     height: auto;
     height: 150px;
     object-fit: cover;
-    border-radius: 4px;
+    border-radius: 6px;
     box-shadow: 1px 1px 20px 2px #00000029;
     filter: brightness(0.7);
     transition: filter 0.3s ease-in-out;
@@ -71,17 +121,59 @@ nav {
 
 .image-caption {
     position: absolute;
-    bottom: 14px;
+    bottom: 9px;
     left: 0;
     right: 0;
     background: linear-gradient(0deg, rgb(0 0 0 / 48%) 0%, rgba(255, 255, 255, 0) 100%);
     color: white;
     text-align: center;
     width: auto;
-    margin: 0px 8.5px;
+    margin: 0px 4.5px;
     height: auto;
     padding-bottom: 6px;
     z-index: 1;
     font-size: 16px;
     text-shadow: 0 0 black;
+}
+
+@media screen and (max-width: 1145px) {
+
+    .preview-image img {
+        height: 66px;
+    }
+
+    .main {
+        height: 100vh;
+        width: 96%;
+    }
+
+    .image-gallery-thumbnail {
+        margin-top: 0 !important;
+    }
+
+    .image-gallery-thumbnails {
+        width: 100%;
+    }
+
+    .albumsList {
+        flex-direction: row;
+        position: unset;
+        flex-wrap: wrap;
+        height: unset;
+        width: 100%;
+        background: unset;
+        margin-bottom: 10px;
+    }
+
+    .preview-image {
+        width: 84px;
+        height: 70px;
+        margin-top: 0;
+        box-sizing: unset;
+        margin: 0;
+    }
+
+    .image-caption {
+        font-size: small;
+    }
 }
