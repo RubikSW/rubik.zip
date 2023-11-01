@@ -78,7 +78,6 @@ nav {
     margin: auto;
     position: relative;
     transition: transform 0.3s ease-in-out;
-    margin-top: 5px;
     padding-bottom: 0px;
 }
 
@@ -105,10 +104,11 @@ nav {
     height: auto;
     height: 150px;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: 2px;
     box-shadow: 1px 1px 20px 2px #00000029;
     filter: brightness(0.7);
     transition: filter 0.3s ease-in-out;
+    border: 1px solid #ffffff24;
 }
 
 .preview-image:hover {
@@ -121,18 +121,18 @@ nav {
 
 .image-caption {
     position: absolute;
-    bottom: 9px;
+    bottom: 5px;
     left: 0;
     right: 0;
-    background: linear-gradient(0deg, rgb(0 0 0 / 48%) 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(1deg, rgb(0 0 0 / 48%) 0%, rgba(255, 255, 255, 0) 100%);
     color: white;
     text-align: center;
-    width: auto;
-    margin: 0px 4.5px;
+    width: 97%;
     height: auto;
     padding-bottom: 6px;
     z-index: 1;
     font-size: 16px;
+    margin: auto;
     text-shadow: 0 0 black;
 }
 

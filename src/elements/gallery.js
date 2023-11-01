@@ -37,7 +37,7 @@ function Gallery({ state, albumId }) {
             <div key={index} className="preview-image">
               <div>
                 <NavLink to="/gallery" style={{ textDecoration: 'none' }}>
-                  <img src={imageUrl} alt={`Image ${index + 1}`} loading="lazy" />
+                  <img src={imageUrl} alt={`${index + 1}`} loading="lazy" />
                 </NavLink>
               </div>
             </div>
@@ -56,7 +56,7 @@ function Gallery({ state, albumId }) {
     return (
       <div>
         <div className="preview-container" id='gallery'>
-          <ImageGallery items={thumbnailItems} lazyLoad={false} thumbnailPosition='top' />
+          <ImageGallery items={thumbnailItems} lazyLoad={true} thumbnailPosition='top' />
         </div>
       </div>
     );

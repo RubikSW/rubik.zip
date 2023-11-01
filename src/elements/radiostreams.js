@@ -1,23 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../styles/radio.css';
+import HomeBassImg from '../assets/homebass.jpg';
+import TheTrapImg from '../assets/thetrap.jpg';
+import LoungeImg from '../assets/thelounge.jpg';
+import BasementImg from '../assets/basement.jpg';
+import BrainfuelImg from '../assets/brainfuel.jpg';
 
 function RadioStreams() {
   const streams = [
     {
       url: 'https://radio.titsrp.com/homebass/',
       title: 'HomeBass',
-      desc: 'Electronic & Dance',
+      desc: 'Electronic',
       audio: null,
       color: '#83056a',
-      img: 'https://titsrp.com/radio/static/media/bg_edm.6827fc0a35f3e1448105.jpg',
+      img: HomeBassImg,
     },
     {
       url: 'https://radio.titsrp.com/thetrap/',
-      title: 'THE TRAP',
+      title: 'The Trap',
       desc: 'Hip-Hop & RnB',
       audio: null,
       color: 'rgb(220, 83, 83)',
-      img: 'https://titsrp.com/radio/static/media/bg_trap.fd3d728bd2eebc2e0ca8.jpg',
+      img: TheTrapImg,
     },
     {
       url: 'https://radio.titsrp.com/thelounge/',
@@ -25,7 +30,7 @@ function RadioStreams() {
       desc: 'Chill & Pop Hits',
       audio: null,
       color: '#8c7be4',
-      img: 'https://titsrp.com/radio/static/media/bg_lounge.3f148e31eb751dc3c0f4.jpg',
+      img: LoungeImg,
     },
     {
       url: 'https://radio.titsrp.com/thebasement/',
@@ -33,7 +38,7 @@ function RadioStreams() {
       desc: 'Alternative',
       audio: null,
       color: '#888a8b',
-      img: 'https://titsrp.com/radio/static/media/bg_basement.57def204798013bc1cac.jpg',
+      img: BasementImg,
     },
     {
       url: 'https://radio.titsrp.com/brainfuel/',
@@ -41,7 +46,7 @@ function RadioStreams() {
       desc: 'Hardstyle & Trance',
       audio: null,
       color: '#41b8d4',
-      img: 'https://titsrp.com/radio/static/media/bg_brain.0c9d4f5430d8a873248a.jpg',
+      img: BrainfuelImg,
     },
   ];
 
@@ -49,7 +54,7 @@ function RadioStreams() {
 
   const playStream = (stream, title) => {
     if (activeStream) {
-      if (activeStream == stream) {
+      if (activeStream === stream) {
         setActiveStream(false)
         activeStream.pause();
         const Pulses = document.querySelectorAll('.pulse');
@@ -72,17 +77,15 @@ function RadioStreams() {
   return (
     <div className='RadioStreams'>
       {streams.map((stream, index) => (
-        <div id={stream.title} onClick={() => playStream(stream.audio, stream.title)} style={{backgroundImage: `url(${stream.img}`}} className='StreamBlock' key={index}>
-          <audio ref={(ref) => (stream.audio = ref)} preload="auto">
+        <div id={stream.title} onClick={() => playStream(stream.audio, stream.title)} className='StreamBlock' key={index}>
+          <div className="background" style={{backgroundImage: `url(${stream.img}`}}></div>
+          <audio ref={(ref) => (stream.audio = ref)} preload="none" crossOrigin="anonymous">
             <source src={stream.url} type="audio/mpeg" />
           </audio>
-          <div className='StreamTitle' style={{background: `linear-gradient(90deg, ${stream.color}, transparent)`}}>
-            {stream.title}
+          <div className='StreamTitle'>
+            {stream.title} <span style={{fontSize:'10px', fontWeight:'200', top: '-2px',position:'relative'}}>{stream.desc}</span>
           </div>
-          <div className='StreamDesc'>
-            {stream.desc}
-          </div>
-          <div className='MusicBars' style={{ display: document.getElementById(stream.title)?.classList.contains("pulse") && 'inline-flex' || 'none' }}>
+          <div className='MusicBars' style={{ display: (document.getElementById(stream.title)?.classList.contains("pulse") && 'inline-flex') || 'none' }}>
 
             {Array.apply(null, { length: 25 }).map((e, i) => (
               <span />

@@ -52,12 +52,12 @@ function GitHubRepos({ username }) {
           <li key={repo.id}>
             <div className='Repo'>
               <div id='inner'>
-                <a id="top" href={repo.html_url} target={'_blank'} style={{ textDecoration: 'none' }}><img src={repoImageMapping[repo.id]}></img></a>
+                <a id="top" href={repo.html_url} target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}><img alt="repo id" src={repoImageMapping[repo.id]}></img></a>
                 <div id='text'>
                   <div id='frm'>
                     <div id='one'>
-                      <a href={repo.html_url} target={'_blank'} style={{ textDecoration: 'none' }}><span id='name'>{repo.name}</span></a>
-                      <span id='desc'>{repoImageMapping[repo.id] && repoImageMapping[repo.id][1].length > 1 && repoImageMapping[repo.id][1] || repo.description}</span>
+                      <a href={repo.html_url} target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}><span id='name'>{repo.name}</span></a>
+                      <span id='desc'>{(repoImageMapping[repo.id] && repoImageMapping[repo.id][1].length > 1 && repoImageMapping[repo.id][1]) || repo.description}</span>
                     </div>
                     <div id='two'>
                       <span id='language'><FontAwesomeIcon icon={faCodeBranch} />{repo.language}</span>

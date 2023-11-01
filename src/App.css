@@ -9,14 +9,59 @@
   width: 100%;
 }
 
+li svg {
+  box-shadow: 0 0 20px #00000063;
+}
+
+#links li svg {
+  height: 24px !important;
+}
+
 .MainFrame, body {
   display: flex;
   align-items: center;
   min-height: 100vh;
-  background: url(bg.jpg) center no-repeat fixed;
+  background: linear-gradient(285deg, #25282e, #ffffff1a);
   background-color: black;
   backdrop-filter: brightness(0.2);
   justify-content: center;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.roles {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.RoleIcon {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ffffff24;
+  background: #393c4257;
+  font-size: 14px;
+  border-radius: 100px;
+  padding-right: 10px;
+  text-decoration: none;
+  box-shadow: 0 0 20px #00000063;
+  -moz-user-select: none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+.Rolefa {
+  background: #ffffff12;
+  border-radius: 100px;
+  padding: 10px;
+  margin-right: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 13px;
 }
 
 .main {
@@ -68,45 +113,71 @@ nav {
   display: flex;
 }
 
+.post {
+  margin-left: 10px;
+}
+
+#post_title svg {
+  height: 14px !important;
+}
+
 .post #body {
   display: flex;
   flex-direction: column;
+  padding-bottom: 15px;
+  font-size: 14px;
 }
 
 .post #body img {
   margin: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border-radius: 6px;
-  width: 100%;
-  
+  border-radius: 2px;
+  width: auto;
 }
 
 .preview-container {
   display: flex;
-}
-
-
-.post #close {
-  font-size: 56px;
-  margin: auto;
-  transform: translateY(0);
-  transition: transform 0.2s ease;
-}
-
-.post #close:hover {
-  transform: translateY(-3px);
-  cursor: pointer;
+  width: 99.75%;
 }
 
 #post_title {
-  font-size: 20px;
+  font-size: 14px;
 }
 
 #GreenCode {
   font-family: "IBM Plex Mono";
   color: #8dffba;
 }
+
+.post #GreenCode {
+  font-size: 14px;
+}
+
+.post #close {
+  font-size: 30px;
+  margin: auto;
+  width: 100%;
+  box-shadow: none;
+}
+
+.content {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.expanded {
+  max-height: 5000px;
+}
+
+.content-inner {
+  transition: max-height 1s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.expanded-inner {
+  max-height: 2000px;
+}
+
 
 #Code {
   font-family: "IBM Plex Mono";
@@ -116,17 +187,8 @@ nav {
   font-size: 12px;
 }
 
-.recent li {
-  padding-bottom: 12px !important;
-}
-
 .recent #post_title:hover {
   cursor: pointer;
-}
-
-.recent li:hover #post_title,
-.recent li:hover #post_time {
-  font-weight: 600;
 }
 
 nav ul {
@@ -148,6 +210,7 @@ nav li {
   height: unset;
   font-size: 40px;
   position: relative;
+  display: flex;
 }
 
 nav li::before {
@@ -180,7 +243,6 @@ ul {
 }
 
 ul li {
-  padding-bottom: 20px;
   position: relative
 }
 
@@ -189,12 +251,19 @@ ul li:last-child span:before {
 }
 
 ul li:last-child {
-  padding-bottom: 0
+  padding-bottom: 0 !important;
 }
 
 .recent {
-  width: 98%;
-  margin-left: 10px;
+  border: 1px solid #ffffff1f;
+  background-color: #ffffff05;
+  box-shadow: 1px 1px 20px 2px #00000029;
+  padding: 10px;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 5px;
 }
 
 .repos {
@@ -202,17 +271,19 @@ ul li:last-child {
   flex-direction: row;
   max-width: 100%;
   margin: auto;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 5px;
 }
 
 .repos li {
-  width: 100%;
-  max-width: 50%;
+  width: auto;
+  max-width: 49%;
 }
 
 .ReposFrm {
-  margin-top: 10px;
+  padding: 5px 0;
+  width: 100%;
 }
 
 .Repo {
@@ -220,13 +291,10 @@ ul li:last-child {
   flex-direction: column;
   border: 1px solid #ffffff1f;
   padding: 10px;
-  border-radius: 6px;
+  border-radius: 2px;
   height: 115px;
-  background-color: #1f1f1f;
+  background-color: #ffffff05;
   box-shadow: 1px 1px 20px 2px #00000029;
-  margin-left: 0;
-  width: 93%;
-  margin-left: 5px;
 }
 
 .Repo #inner {
@@ -269,12 +337,11 @@ ul li:last-child {
 .Repo #inner img {
   height: 115px;
   width: 115px;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 
 .Repo #name {
   font-size: 20px;
-  font-weight: 600;
   margin-bottom: 3px;
 }
 
@@ -291,14 +358,27 @@ ul li:last-child {
 }
 
 #section {
-  margin-bottom: 20px !important;
+  margin-bottom: 25px;
+  background: #ffffff0d;
+  border: 1px solid #ffffff24;
+  border-radius: 2px;
+  box-shadow: 0 0 20px #00000063;
 }
 
-#section h1 {
-  background: linear-gradient(-90deg, #3f475480, transparent);
-  padding: 3px 5px;
-  border-radius: 6px;
-  margin: 0 5px;
+.GallerySection {
+  margin-bottom: 15px !important;
+}
+
+#section .head, #section .RadioTitle {
+  background: #36383d;
+  padding: 7px;
+  border: 1px solid #ffffff24;
+  border-radius: 2px;
+  font-size: 15px;
+  box-shadow: 0 0 20px #00000063;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
 }
 
 
@@ -310,6 +390,7 @@ ul li:last-child {
 
   .main {
     width: 100%;
+    height: unset !important;
   }
 
   .post #body img {
@@ -337,6 +418,7 @@ ul li:last-child {
     position: relative;
     transition: 0.3s;
     margin: 1rem;
+    justify-content: center;
   }
 
   .repos li {
@@ -345,13 +427,13 @@ ul li:last-child {
 
   nav ul {
     display: flex;
+    height: 60px;
   }
 
   #headtext {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 15px;
   }
 
   .subs {
@@ -359,7 +441,9 @@ ul li:last-child {
   }
 
   #section {
-    padding: 10px;
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
   }
 
   .repos {
@@ -409,7 +493,7 @@ ul li:last-child {
   .MainFrame, body {
 
     min-height: 80vh;
-    background: url(bg.jpg) center no-repeat fixed;
+    background: linear-gradient(285deg, #25282e, #ffffff1a);
     background-size: fixed;
   }
 
@@ -437,12 +521,22 @@ ul li:last-child {
   }
 
   #post_title {
-    font-size: 4.5vw;
+    font-size: 4vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   #post_time {
     font-size: 3.5vw;
+  }
+
+  .post #GreenCode {
+    font-size: 12px;
     white-space: nowrap;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   #inner #top {

@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 10px 0;
+    margin: 5px 0;
+    height: 65px;
 }
 
 .RadioStreams video {
@@ -18,42 +19,63 @@
     box-sizing: border-box;
     margin: auto;
     position: relative;
-    transition: transform 0.3s ease-in-out;
-    margin-top: 5px;
-    height: 100px;
+    transition: height .5s ease-in-out, transform .5s ease-in-out, z-index 2s cubic-bezier(0,1,1,0), box-shadow .5s ease-in-out;
+    height: 65px;
     transform: skewY(0);
-    border-radius: 6px;
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #ffffff24;
+    z-index: 2;
+}
+
+.RadioStreams .background {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    filter: blur(4px) saturate(0);
+    transition: filter 2s;
+}
+
+.StreamBlock:hover > .background { 
+    filter: blur(0) saturate(1);
+    transition: filter .5s;
 }
 
 .StreamBlock:hover {
     transform: skewY(-.8deg) scale(1.5);
-    z-index: 2;
     cursor: pointer;
+    height: 100px;
+    transition: height .5s ease-in-out, transform .5s ease-in-out, z-index 0s cubic-bezier(0,1,1,0), box-shadow .5s ease-in-out;
+    z-index: 5;
+    box-shadow: 0 0 20px #00000094;
 }
 
 .StreamBlock:hover > .StreamTitle { 
     mix-blend-mode: lighten;
 }
 
-.StreamBlock:hover > .StreamDesc { 
-    font-size: 17px;
-}
-
 .StreamTitle, .StreamDesc {
-    font-family: Rubik Mono One,serif;
     font-size: 15px;
     mix-blend-mode: unset;
+    font-weight: 400;
 }
 
 .StreamTitle {
     margin-bottom: 5px;
-    padding: 0 5px;
+    padding: 3px 6px;
     width: fit-content;
     font-size: 15px;
-    border-radius: 6px 6px 0 0;
+    border-radius: 2px 2px 0 0;
     width: auto;
-    line-height: 27px;
-    backdrop-filter: blur(4px);
+    font-weight: 600;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
 }
 
 .StreamDesc {
@@ -101,7 +123,7 @@
     animation-delay: -1.9s;
 }
 .MusicBars span:nth-child(7n) {
-    animation-delay: -5.1s;
+    animation-delay: -2.2s;
 }
 
 
@@ -135,7 +157,6 @@
     }
 }
 
-
 @media screen and (max-width: 1145px) { 
     .RadioStreams {
         overflow-x: scroll;
@@ -143,11 +164,14 @@
         border-radius: 6px;
     }
     .StreamBlock {
-        min-width: 50%;
+        min-width: 30%;
         margin-right: 10px;
+        height: 60px;
     }
 
     .StreamBlock:hover {
         transform: none;
+        transition: none;
+        height: 60px;
     }
 }
