@@ -1,11 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faCode, faCamera, faCodeCommit, faHand, faHeadphones, faGamepad, faTerminal, faHeadset, faMusic, faPlaneDeparture, faVideoCamera, faBlog } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faCode, faCamera, faCodeCommit, faHand, faHeadphones, faTerminal, faMusic, faPlaneDeparture, faBlog } from '@fortawesome/free-solid-svg-icons'
 import { faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons'
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import "@fontsource/ibm-plex-mono";
 import '../App.css';
-import me from '../me.png'
 import RadioStreams from '../elements/radiostreams';
 import RoleIcon from '../elements/role';
 import GitHubRepos from '../utils/GitHub';
@@ -31,38 +30,35 @@ function Home() {
                 </nav>
               </div>
               <div id="headtext">
-                <span style={{ fontSize: '17px', margin: '20px 0' }}>I see you've taken a leap of faith and opened <span id='GreenCode' style={{ color: '#8dffba' }}>rubik.zip</span>.
-                  You may use, copy or modify any of my photos or github projects for non-commercial purposes. I can be reached via Discord, or by email at sbsrubik@outlook.com
-                </span>
-                <div className='roles'>
-                  <RoleIcon title="Server Owner" ico={faGamepad} />
+                <div className='roles' style={{ marginTop: '20px' }}>
                   <RoleIcon title="Programmer" ico={faTerminal} />
-                  <RoleIcon title="Bug Hunter" ico={faDiscord} />
-                  <RoleIcon title="Gamer" ico={faHeadset} url="https://steamcommunity.com/id/hitlher" />
-                  <RoleIcon title="Audiophile" ico={faMusic} />
                   <RoleIcon title="Traveler" ico={faPlaneDeparture} />
-                  <RoleIcon title="Photographer" ico={faCamera} url="https://rubik.zip/gallery" />
-                  <RoleIcon title="Technical Director" ico={faVideoCamera} />
+                  <RoleIcon title="Audiophile" ico={faMusic} />
+                  <NavLink to="/gallery" style={{ textDecoration: 'none' }}>
+                    <RoleIcon title="Photographer" ico={faCamera} url="https://rubik.zip/gallery" />
+                  </NavLink>
+                  <RoleIcon title="Bug Hunter" ico={faDiscord} />
+
                 </div>
               </div>
             </div>
           </div>
           <div id='section' className='GallerySection'>
             <NavLink to="/gallery" style={{ textDecoration: 'none' }}>
-              <div className='head'><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faCamera} /> Gallery</div>
+              <div className='head'><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faCamera} />Photo Gallery</div>
             </NavLink>
-            <Gallery state="preview" albumId="72177720312330726" />
+            <Gallery state="preview" albumId="72177720311627253" />
           </div>
           <div id='section'>
-            <div className='RadioTitle'><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faHeadphones} title='Continuous audio streams using Icecast & ffmpeg running as a PM2 process.' /> Radio</div>
+            <div className='RadioTitle'><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faHeadphones} /> <span className='RadioTitleInternal'>Radio Streams</span></div>
             <RadioStreams />
           </div>
           <div id='section'>
-            <div className='head'><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faBlog} /> Blog</div>
+            <div className='head'><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faBlog} />My Blog</div>
             <BlogPosts />
           </div>
           <div id='section'>
-            <div className='head'><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faCodeCommit} /> Projects</div>
+            <div className='head'><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faCodeCommit} />Projects</div>
             <GitHubRepos username="rubiksw" />
           </div>
         </div>

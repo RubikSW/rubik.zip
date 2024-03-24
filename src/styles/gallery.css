@@ -1,21 +1,93 @@
 .albumsList {
     display: flex;
-    position: absolute;
-    flex-direction: column;
-    left: 0;
+    flex-direction: row;
     top: 0;
-    overflow-y: scroll;
-    width: 320px;
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
+    width: 100%;
+    overflow: scroll;
     height: 100%;
-    background: #ffffff1c;
+    background: #36383d;
+    border-radius: 2px;
+    background: #ffffff0d;
+    overflow-y: hidden;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #888 #ffffff0d; /* Firefox */
 }
 
 .albumsList::-webkit-scrollbar {
-    display: none;
+    width: 8px; /* WebKit */
+    height: 6px;
+}
+
+.albumsList::-webkit-scrollbar-thumb {
+    background-color: #888; /* WebKit */
+    border-radius: 4px; /* WebKit */
+}
+
+.albumsList::-webkit-scrollbar-track {
+    background-color: #ffffff0d; /* WebKit */
+}
+
+.AlbumsFrame {
+    display: flex;
+    flex-direction: column;
+    left: 10px;
+    top: 0;
+    overflow-y: scroll;
+    width: 100%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    background: #36383d;
+    border-radius: 2px;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    background: #ffffff0d;
+    border: 1px solid #ffffff24;
+    border-radius: 2px;
+    box-shadow: 0 0 20px #00000063;
+    overflow: hidden;
+}
+
+.HomeButt {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    left: 10px;
+    top: 0;
+    overflow-y: scroll;
+    width: 270px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    height: 94vh;
+    background: #36383d;
+    border-radius: 2px;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    margin-top: 25px;
+    background: #ffffff0d;
+    border: 1px solid #ffffff24;
+    border-radius: 2px;
+    box-shadow: 0 0 20px #00000063;
+    overflow: hidden;
+}
+
+
+.AlbumsHead {
+    background: #36383d;
+    padding: 7px;
+    border: 1px solid #ffffff24;
+    border-radius: 2px;
+    font-size: 15px;
+    box-shadow: 0 0 20px #00000063;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    display: block;
+}
+
+.image-gallery-content .image-gallery-slide .image-gallery-image {
+    max-height: unset !important;
 }
 
 .image-gallery-slide-wrapper,
@@ -24,9 +96,67 @@
     box-shadow: 1px 1px 20px 2px #00000029;
 }
 
+.masonry-grid {
+    display: flex;
+    margin-left: -15px;
+    width: auto;
+}
 
-#gallery {
+.masonry-column {
+    padding-left: 15px;
+    background-clip: padding-box;
+}
+
+.masonry-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 15px;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.masonry-image:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s ease-in-out;
+}
+
+.ImgWrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    backdrop-filter: blur(35px);
+    z-index: 5;
+    height: 100%;
+    width: 100%;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    align-items: flex-start;
+}
+
+.ImgWrapper #imgWrapperFrm {
+    margin-top: 150px;
+}
+
+.ImgWrapper #head {
+    background: #36383d;
+    padding: 7px 10px;
+    border: 1px solid #ffffff24;
+    border-radius: 2px;
+    font-size: 15px;
+    box-shadow: 0 0 20px #00000063;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.ImgWrapper img {
+    max-width: 70vw !important;
+    max-height: 80vh !important;
 }
 
 nav {
@@ -34,7 +164,7 @@ nav {
 }
 
 .main {
-    margin-top: 1%;
+    margin-top: 0;
     width: 900px;
 }
 
@@ -70,6 +200,57 @@ nav {
     height: 110px;
 }
 
+.GalleryFrame {
+    overflow: hidden;
+    background: #ffffff0d;
+    border: 1px solid #ffffff24;
+    border-radius: 2px;
+    box-shadow: 0 0 20px #00000063;
+    overflow: hidden;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.preview-container {
+    max-height: 98vh;
+    OVERFLOW: scroll;
+    padding: 0;
+    display: flex;
+}
+
+.Gallery {
+    max-height: 74vh;
+    OVERFLOW: scroll;
+    padding: 10px;
+    padding-bottom: 0;
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.GalleryFrame::-webkit-scrollbar, .preview-container::-webkit-scrollbar, .Gallery::-webkit-scrollbar {
+display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.GalleryFrame, .preview-container, .Gallery {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+}
+
+.GalleryText {
+    background: #36383d;
+    padding: 7px;
+    border: 1px solid #ffffff24;
+    border-radius: 2px;
+    font-size: 15px;
+    box-shadow: 0 0 20px #00000063;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    display: flex;
+    flex-direction: column;
+}
+
 .preview-image {
     width: 80%;
     margin: auto;
@@ -100,7 +281,7 @@ nav {
 }
 
 .preview-image img {
-    width: 100%;
+    width: 99%;
     height: auto;
     height: 150px;
     object-fit: cover;
@@ -117,6 +298,11 @@ nav {
 
 .preview-image:hover img {
     filter: brightness(1);
+}
+
+#albums img {
+    width: 150px;
+    height: 150px;
 }
 
 .image-caption {
@@ -138,13 +324,15 @@ nav {
 
 @media screen and (max-width: 1145px) {
 
-    .preview-image img {
-        height: 66px;
+    #albums img {
+        height: 80px;
+        width: 80px;
     }
 
+ 
     .main {
         height: 100vh;
-        width: 96%;
+        width: 98vw;
     }
 
     .image-gallery-thumbnail {
@@ -158,22 +346,41 @@ nav {
     .albumsList {
         flex-direction: row;
         position: unset;
-        flex-wrap: wrap;
         height: unset;
         width: 100%;
         background: unset;
-        margin-bottom: 10px;
     }
 
     .preview-image {
-        width: 84px;
-        height: 70px;
         margin-top: 0;
         box-sizing: unset;
         margin: 0;
     }
 
+    .preview-image img {
+        height: 80px;
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .ImgWrapper {
+        height: 100vh;
+    }
+
+    .ImgWrapper img {
+        max-width: 96vw !important;
+        max-height: 100vh !important;
+    }
+
     .image-caption {
-        font-size: small;
+        font-size: x-small !important;
+        width: 85%;
+        bottom: 5px;
+        left: 0;
+        background: none;
+    }
+
+    .Gallery {
+        max-height: 68vh;
     }
 }

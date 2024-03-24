@@ -1,8 +1,10 @@
 
 
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import '../styles/gallery.css';
 import Gallery from './gallery';
+import { faPhotoFilm } from '@fortawesome/free-solid-svg-icons';
 
 function Albums() {
   const [albums, setAlbums] = useState([]);
@@ -53,34 +55,44 @@ function Albums() {
 
   return (
     <div>
-      <div className="albumsList">
-        {albums.map((album, index) => (
-          <div
-            key={index}
-            className="preview-image"
-            onClick={() => {
-              setSelectedAlbum(album.id);
-            }}
-          >
-            <div>
-              <span className='image-caption'>{album.title._content}</span>
-              {albumThumbnails[album.id] && (
-                <img
-                  src={albumThumbnails[album.id]}
-                  alt={`Thumbnail for ${album.title._content}`}
-                  loading="lazy"
-                />
-              )}
+      <div className='GalleryBody'>
+
+          <div className="AlbumsFrame">
+            <span className='AlbumsHead'><FontAwesomeIcon style={{marginRight: '5px'}} icon={faPhotoFilm} />Albums</span>
+            <div className="albumsList">
+              {albums.map((album, index) => (
+                <div
+                  key={index}
+                  className="preview-image" id='albums'
+                  onClick={() => {
+                    setSelectedAlbum(album.id);
+                  }}
+                >
+                  <div>
+                    <span className='image-caption'>{album.title._content}</span>
+                    {albumThumbnails[album.id] && (
+                      <img
+                        src={albumThumbnails[album.id]}
+                        alt={`Thumbnail for ${album.title._content}`}
+                        loading="lazy"
+                      />
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        ))}
+
+                      
+          <div className="GalleryFrame">
+            <div className='GalleryText'>
+              {selectedAlbum && <span>{albums.find(album => album.id === selectedAlbum).title._content}</span>}
+            </div>
+            <Gallery state="all" albumId={selectedAlbum} />
+          </div>
+
+
       </div>
-      
-      <div className='AlbumTitle'>
-        {selectedAlbum && <h1>{albums.find(album => album.id === selectedAlbum).title._content}</h1>}
-        {selectedAlbum && <h3 >{albums.find(album => album.id === selectedAlbum).description._content}</h3>}
-      </div>
-      <Gallery state="all" albumId={selectedAlbum} />
     </div>
   );
 }

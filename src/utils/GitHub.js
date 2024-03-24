@@ -10,10 +10,11 @@ function GitHubRepos({ username }) {
   const repoImageMapping = {
     572730660: 'https://i.imgur.com/pa5eEnH.png', //aurora
     532611516: 'https://i.imgur.com/bcPQpNr.png', //mlp
-    537990912: 'https://camo.githubusercontent.com/c6da0d3f2cf4a86bb21495607e9cdf00ab6badc63103bcdf37ab74e93dc509b2/68747470733a2f2f692e696d6775722e636f6d2f4c5778515348452e706e67',
+    537990912: 'https://i.imgur.com/RPignrY.png', //gac
     644706455: ['https://i.imgur.com/nP35DmD.png', "RPC client for our Garry's Mod server. Connects to our API and displays the player's current activity via Discord's activity status service."], //gmod rpc client
     623280194: 'https://i.imgur.com/HwXjBxh.png', //mdmp
-    482373146: 'https://i.imgur.com/qfKT5tv.png' //path
+    482373146: 'https://i.imgur.com/qfKT5tv.png', //path
+    770024579: 'https://i.imgur.com/rqqKd8a.png', //ips-block
   };
 
   useEffect(() => {
@@ -28,6 +29,7 @@ function GitHubRepos({ username }) {
       })
       .then((data) => {
         const nonForkedRepos = data.filter((repo) => !repo.fork);
+        console.log(data)
         setRepos(nonForkedRepos);
         setLoading(false);
       })
